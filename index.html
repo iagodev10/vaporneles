@@ -32,7 +32,12 @@
             /></a>
           </div>
           <nav class="cssmenu">
-            <ul>
+            <button class="menu-toggle" aria-label="Abrir Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul class="nav-list">
               <li class="active"><a href="index.html">Home</a></li>
               <li><a href="products.html">Vaporizadoras</a></li>
               <li><a href="services.html">Soluções</a></li>
@@ -791,6 +796,23 @@
           currentIndex = (currentIndex + 1) % testimonials.length;
           showTestimonial(currentIndex);
         }, 5000);
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navList = document.querySelector(".nav-list");
+
+        menuToggle.addEventListener("click", function() {
+          menuToggle.classList.toggle("active");
+          navList.classList.toggle("active");
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll(".nav-list a").forEach(link => {
+          link.addEventListener("click", () => {
+            menuToggle.classList.remove("active");
+            navList.classList.remove("active");
+          });
+        });
       });
     </script>
   </body>
