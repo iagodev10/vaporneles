@@ -1,0 +1,327 @@
+/* ==========================================================================
+   LIQUID GLASS (VIDRO LÍQUIDO) - DESIGN SYSTEM OVERRIDE
+   ========================================================================== */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  --glass-glow: 0 0 20px rgba(245, 137, 114, 0.5);
+  --neon-accent: #f58972;
+  --neon-gradient: linear-gradient(135deg, #f58972, #ff4b2b);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
+
+body {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-primary) !important;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+/* Base Glassmorphism Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 20px;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Sections overrides to remove solid colors */
+.features-section,
+.testimonials-section,
+.about-section,
+.applications-section,
+.main,
+.intro-section {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Header & Navbar */
+.header-top {
+  background: rgba(15, 12, 41, 0.6) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.header-top:hover {
+  box-shadow: var(--glass-glow) !important;
+  border-color: rgba(245, 137, 114, 0.3) !important;
+}
+
+.cssmenu a {
+  color: var(--text-primary) !important;
+}
+
+.cssmenu a:hover,
+.cssmenu li.active a {
+  color: var(--neon-accent) !important;
+  text-shadow: 0 0 10px var(--neon-accent) !important;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--glass-shadow) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before, .btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.btn-primary:hover::before, .btn-secondary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  background: var(--neon-gradient) !important;
+  box-shadow: var(--glass-glow) !important;
+  border-color: transparent !important;
+  transform: translateY(-3px) scale(1.05) !important;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3) !important;
+  transform: translateY(-3px) scale(1.05) !important;
+}
+
+/* Cards & Carousel Items */
+.carousel-item-content, 
+.about-card, 
+.feature-item, 
+.product-card,
+.testimonial,
+.service-card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  border-radius: 20px !important;
+  padding: 30px !important;
+  transition: all 0.4s ease-in-out !important;
+  color: var(--text-primary) !important;
+}
+
+.carousel-item-content:hover, 
+.about-card:hover, 
+.feature-item:hover, 
+.product-card:hover,
+.service-card:hover,
+.testimonial:hover {
+  background: var(--glass-bg-hover) !important;
+  transform: translateY(-8px) scale(1.03) !important;
+  box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255,255,255,0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.product-card h3, .product-card h2,
+.feature-item h3,
+.about-card h2,
+.carousel-item-content h2 a,
+.service-card h3 {
+  color: var(--text-primary) !important;
+}
+
+.carousel-item-content p span,
+.feature-item p,
+.about-card p,
+.testimonial p,
+.product-card p,
+.service-card p {
+  color: var(--text-secondary) !important;
+}
+
+/* Fix tabs section */
+.resp-tabs-list li {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+  backdrop-filter: blur(5px) !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.resp-tabs-list li.resp-tab-active {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-bottom: none !important;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.2) !important;
+}
+
+.resp-tabs-container {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 0 20px 20px 20px !important;
+  box-shadow: var(--glass-shadow) !important;
+  color: var(--text-secondary) !important;
+}
+
+.tab-text h3 {
+  color: var(--neon-accent) !important;
+  text-shadow: 0 0 10px rgba(245, 137, 114, 0.3) !important;
+}
+
+/* Footer */
+.footer {
+  background: rgba(15, 12, 41, 0.8) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  border-top: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+}
+
+.footer-col h4, .footer-bottom p {
+  color: var(--text-primary) !important;
+}
+
+.footer-col p, .footer-col ul li a {
+  color: var(--text-secondary) !important;
+}
+
+.footer-col ul li a:hover {
+  color: var(--neon-accent) !important;
+  text-shadow: 0 0 8px var(--neon-accent) !important;
+}
+
+.newsletter-form input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+  border-radius: 50px !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.newsletter-form input:focus {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: var(--neon-accent) !important;
+  box-shadow: 0 0 15px rgba(245, 137, 114, 0.3) !important;
+}
+
+/* Titles */
+.section-title {
+  color: var(--text-primary) !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+}
+
+.section-title .accent-text {
+  color: var(--neon-accent) !important;
+  text-shadow: 0 0 15px rgba(245, 137, 114, 0.4) !important;
+}
+
+/* Images & Icons */
+.feature-item img, .carousel-icon {
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.4)) !important;
+}
+
+/* Search Container */
+.search-container input {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+}
+.search-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.search-container input:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2) !important;
+}
+
+/* Product Hero */
+.product-hero {
+  background: linear-gradient(rgba(15, 12, 41, 0.8), rgba(36, 36, 62, 0.9)), url(../images/bg.jpg) no-repeat center center !important;
+  background-size: cover !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+}
+
+/* Login Box */
+#loginBox {
+  background: rgba(15, 12, 41, 0.85) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+#loginForm input[type="email"],
+#loginForm input[type="text"] {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: #fff !important;
+}
+
+/* Ensure smooth scrolling and clean selection */
+::selection {
+  background: var(--neon-accent);
+  color: #fff;
+}
+
+/* Animated background element for extra depth */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(245, 137, 114, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.05) 0%, transparent 40%);
+  z-index: -1;
+  pointer-events: none;
+  animation: bg-shift 20s infinite linear alternate;
+}
+
+@keyframes bg-shift {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Remove white backgrounds from product cards */
+.product-card {
+  background: var(--glass-bg) !important;
+}
+.product-card .product-image {
+  border-bottom: 1px solid var(--glass-border) !important;
+}
+.product-card .product-content {
+  background: transparent !important;
+}
+
+/* Banner content adjustments */
+.banner-content h1,
+.banner-content p {
+  color: var(--text-primary) !important;
+}
